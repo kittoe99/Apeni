@@ -106,6 +106,9 @@ const supportPoints = [
           </div>
         </div>
         <div class="hero-visual fade-up delay-2">
+          <div class="hero-image-card">
+            <img src="/images/hero-dashboard.svg" alt="Dashboard insights illustrating Apeni.co project results" />
+          </div>
           <div class="hero-panel">
             <h3>End-to-end partnership</h3>
             <p>Everything you need to launch and scale—managed by one responsive team.</p>
@@ -148,6 +151,32 @@ const supportPoints = [
       </div>
     </section>
 
+    <section class="section visuals-section">
+      <div class="container split">
+        <div class="split-copy">
+          <div class="section-header">
+            <span class="fade-up">Elevated storytelling</span>
+            <h2 class="fade-up">Immersive visuals that build trust instantly.</h2>
+            <p class="fade-up delay-1">
+              We pair strategy with compelling creative, weaving in dashboards, testimonials, and security proof points so
+              visitors know they’re in good hands.
+            </p>
+          </div>
+          <ul class="tag-list fade-up delay-2">
+            <li v-for="point in supportPoints" :key="point">{{ point }}</li>
+          </ul>
+        </div>
+        <div class="image-stack fade-up delay-2">
+          <div class="visual-card primary">
+            <img src="/images/experience-collage.svg" alt="Creative boards showcasing interface layouts and analytics" />
+          </div>
+          <div class="visual-card secondary">
+            <img src="/images/security-shield.svg" alt="Shield illustration representing proactive cybersecurity" />
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section is-contrast">
       <div class="container split">
         <div class="split-copy">
@@ -164,6 +193,7 @@ const supportPoints = [
           </ul>
         </div>
         <div class="split-visual fade-up delay-3">
+          <img class="split-image" src="/images/services-overview.svg" alt="Workflow tiles showing Apeni.co service coverage" />
           <h4>Inside every engagement</h4>
           <div class="panel-list">
             <div v-for="step in processSteps" :key="step.title" class="panel-item">

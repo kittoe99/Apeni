@@ -46,16 +46,21 @@ const commitments = [
             <NuxtLink to="/services" class="btn btn-secondary">Back to services</NuxtLink>
           </div>
         </div>
-        <div class="highlight-panel fade-up delay-2">
-          <strong>Highlights</strong>
-          <ul style="margin: 0; padding: 0; display: grid; gap: 0.7rem;">
-            <li v-for="item in commitments" :key="item" style="list-style: none; display: flex; gap: 0.7rem; align-items: center;">
-              <span class="icon" style="width: 28px; height: 28px; border-radius: 50%; background: rgba(0, 128, 96, 0.12); display: inline-flex; align-items: center; justify-content: center; color: var(--color-primary);">
-                <AppIcon name="check" size="16" />
-              </span>
-              <span>{{ item }}</span>
-            </li>
-          </ul>
+        <div class="page-visual fade-up delay-2">
+          <div class="visual-card">
+            <img src="/images/dev-workflow.svg" alt="Application workflow illustration with code and collaboration" />
+          </div>
+          <div class="highlight-panel">
+            <strong>Highlights</strong>
+            <ul class="checklist">
+              <li v-for="item in commitments" :key="item">
+                <span class="icon">
+                  <AppIcon name="check" size="16" />
+                </span>
+                <span>{{ item }}</span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>

@@ -1,0 +1,46 @@
+<svg width="520" height="420" viewBox="0 0 520 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="32" y1="28" x2="460" y2="396" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F8C5C" stop-opacity="0.12" />
+      <stop offset="1" stop-color="#0A3F2B" stop-opacity="0.35" />
+    </linearGradient>
+  </defs>
+  <rect x="24" y="20" width="472" height="360" rx="44" fill="url(#bg)" />
+  <g filter="url(#panel1)">
+    <rect x="84" y="92" width="184" height="220" rx="28" fill="#FFFFFF" />
+    <rect x="112" y="136" width="128" height="12" rx="6" fill="#0F8C5C" opacity="0.28" />
+    <rect x="112" y="160" width="108" height="10" rx="5" fill="#0F8C5C" opacity="0.18" />
+    <rect x="112" y="198" width="128" height="80" rx="16" fill="#EAF7F0" />
+    <path d="M128 246C142 218 168 210 188 230C206 246 230 236 244 214" stroke="#27B276" stroke-width="6" stroke-linecap="round" />
+  </g>
+  <g filter="url(#panel2)">
+    <rect x="244" y="72" width="196" height="156" rx="32" fill="#0F8C5C" opacity="0.65" />
+    <rect x="272" y="110" width="140" height="16" rx="8" fill="#FFFFFF" opacity="0.85" />
+    <rect x="272" y="140" width="96" height="16" rx="8" fill="#FFFFFF" opacity="0.6" />
+    <circle cx="380" cy="150" r="26" fill="#FFFFFF" opacity="0.2" />
+    <path d="M368 150L378 160L392 138" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+  <g filter="url(#panel3)">
+    <rect x="260" y="252" width="176" height="112" rx="28" fill="#FFFFFF" />
+    <path d="M292 300H380" stroke="#0F8C5C" stroke-width="8" stroke-linecap="round" />
+    <path d="M292 320H360" stroke="#0F8C5C" stroke-width="8" stroke-linecap="round" opacity="0.6" />
+    <rect x="292" y="272" width="92" height="12" rx="6" fill="#0F8C5C" opacity="0.24" />
+  </g>
+  <defs>
+    <filter id="panel1" x="60" y="72" width="232" height="268" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+      <feGaussianBlur stdDeviation="12" result="effect1_foregroundBlur" />
+    </filter>
+    <filter id="panel2" x="220" y="52" width="244" height="204" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+      <feGaussianBlur stdDeviation="12" result="effect1_foregroundBlur" />
+    </filter>
+    <filter id="panel3" x="236" y="232" width="224" height="160" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+      <feGaussianBlur stdDeviation="12" result="effect1_foregroundBlur" />
+    </filter>
+  </defs>
+</svg>

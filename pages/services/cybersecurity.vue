@@ -45,16 +45,21 @@ const confidencePoints = [
             <NuxtLink to="/services" class="btn btn-secondary">Back to services</NuxtLink>
           </div>
         </div>
-        <div class="highlight-panel fade-up delay-2">
-          <strong>Confidence for your team</strong>
-          <ul style="margin: 0; padding: 0; display: grid; gap: 0.7rem;">
-            <li v-for="point in confidencePoints" :key="point" style="list-style: none; display: flex; gap: 0.7rem; align-items: center;">
-              <span class="icon" style="width: 28px; height: 28px; border-radius: 50%; background: rgba(0, 128, 96, 0.12); display: inline-flex; align-items: center; justify-content: center; color: var(--color-primary);">
-                <AppIcon name="check" size="16" />
-              </span>
-              <span>{{ point }}</span>
-            </li>
-          </ul>
+        <div class="page-visual fade-up delay-2">
+          <div class="visual-card">
+            <img src="/images/security-shield.svg" alt="Security shield graphic demonstrating layered protection" />
+          </div>
+          <div class="highlight-panel">
+            <strong>Confidence for your team</strong>
+            <ul class="checklist">
+              <li v-for="point in confidencePoints" :key="point">
+                <span class="icon">
+                  <AppIcon name="check" size="16" />
+                </span>
+                <span>{{ point }}</span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
@@ -90,9 +95,10 @@ const confidencePoints = [
           </div>
         </div>
         <div class="split-visual fade-up delay-2">
-          <ul style="margin: 0; padding: 0; display: grid; gap: 0.9rem;">
-            <li v-for="assurance in assurances" :key="assurance" style="list-style: none; display: flex; gap: 0.8rem; align-items: center;">
-              <span class="icon" style="width: 32px; height: 32px; border-radius: 50%; background: rgba(0, 128, 96, 0.12); display: inline-flex; align-items: center; justify-content: center; color: var(--color-primary);">
+          <img class="split-image" src="/images/security-shield.svg" alt="Security dashboard collage showing monitoring signals" />
+          <ul class="checklist is-compact">
+            <li v-for="assurance in assurances" :key="assurance">
+              <span class="icon">
                 <AppIcon name="check" size="16" />
               </span>
               <span>{{ assurance }}</span>

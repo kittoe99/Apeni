@@ -53,17 +53,25 @@ const collaboration = [
             move faster without sacrificing quality.
           </p>
         </div>
-        <div class="highlight-panel fade-up delay-2">
-          <strong>What you can expect</strong>
-          <small>Every engagement includes:</small>
-          <ul style="margin: 0; padding: 0; display: grid; gap: 0.7rem;">
-            <li v-for="item in ['Strategy workshops & roadmaps', 'Weekly progress touchpoints', 'Security baked into every sprint']" :key="item" style="list-style: none; display: flex; align-items: center; gap: 0.7rem;">
-              <span class="icon" style="width: 28px; height: 28px; border-radius: 50%; background: rgba(0, 128, 96, 0.12); display: inline-flex; align-items: center; justify-content: center; color: var(--color-primary);">
-                <AppIcon name="check" size="16" />
-              </span>
-              <span>{{ item }}</span>
-            </li>
-          </ul>
+        <div class="page-visual fade-up delay-2">
+          <div class="visual-card">
+            <img src="/images/services-overview.svg" alt="Service tiles showing strategy, design, and security coverage" />
+          </div>
+          <div class="highlight-panel">
+            <strong>What you can expect</strong>
+            <small>Every engagement includes:</small>
+            <ul class="checklist">
+              <li
+                v-for="item in ['Strategy workshops & roadmaps', 'Weekly progress touchpoints', 'Security baked into every sprint']"
+                :key="item"
+              >
+                <span class="icon">
+                  <AppIcon name="check" size="16" />
+                </span>
+                <span>{{ item }}</span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
