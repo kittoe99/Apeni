@@ -3,16 +3,19 @@ const contactInfo = [
   {
     label: 'Email',
     value: 'kofikittoe35@gmail.com',
-    href: 'mailto:kofikittoe35@gmail.com'
+    href: 'mailto:kofikittoe35@gmail.com',
+    icon: 'mail'
   },
   {
     label: 'Phone',
     value: '720-842-9167',
-    href: 'tel:17208429167'
+    href: 'tel:17208429167',
+    icon: 'phone'
   },
   {
     label: 'Service Area',
-    value: 'Denver, Colorado · Remote within 67 km radius'
+    value: 'Denver, Colorado · Remote within 67 km radius',
+    icon: 'location'
   }
 ];
 </script>
@@ -31,6 +34,9 @@ const contactInfo = [
         <div class="hero-media">
           <div class="floating-card fade-up delay-2">
             <span class="eyebrow">Prefer email?</span>
+            <div class="card-icon small">
+              <AppIcon name="mail" size="22" />
+            </div>
             <small>Drop us a line at</small>
             <p class="floating-emphasis">kofikittoe35@gmail.com</p>
             <small>We’ll schedule a call that fits your calendar.</small>
@@ -45,12 +51,17 @@ const contactInfo = [
           <div class="contact-details fade-up">
             <h2>How to reach us</h2>
             <p>We collaborate remotely with clients across Denver and beyond. Let us know if you prefer video calls, async updates, or in-person workshops.</p>
-            <div v-for="item in contactInfo" :key="item.label">
-              <strong>{{ item.label }}</strong>
-              <div v-if="item.href">
-                <a :href="item.href">{{ item.value }}</a>
+            <div v-for="item in contactInfo" :key="item.label" class="contact-info-item">
+              <span class="contact-info-icon">
+                <AppIcon :name="item.icon" size="18" />
+              </span>
+              <div>
+                <strong>{{ item.label }}</strong>
+                <div v-if="item.href">
+                  <a :href="item.href">{{ item.value }}</a>
+                </div>
+                <div v-else>{{ item.value }}</div>
               </div>
-              <div v-else>{{ item.value }}</div>
             </div>
           </div>
           <form class="contact-form fade-up delay-1" @submit.prevent>

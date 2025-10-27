@@ -1,25 +1,40 @@
 <script setup lang="ts">
 const capabilities = [
-  'Brand workshops that translate your story into digital style guides',
-  'Responsive layouts optimized for mobile-first experiences',
-  'Copywriting support, content strategy, and SEO fundamentals',
-  'Interactive prototypes and micro-animations that boost engagement'
+  {
+    text: 'Brand workshops that translate your story into digital style guides',
+    icon: 'spark'
+  },
+  {
+    text: 'Responsive layouts optimized for mobile-first experiences',
+    icon: 'layout'
+  },
+  {
+    text: 'Copywriting support, content strategy, and SEO fundamentals',
+    icon: 'mail'
+  },
+  {
+    text: 'Interactive prototypes and micro-animations that boost engagement',
+    icon: 'code'
+  }
 ];
 
 const packages = [
   {
     name: 'Launch-Ready Website',
     details: 'Perfect for new businesses that need a fast, beautiful site with essential integrations.',
+    icon: 'spark',
     inclusions: ['3-5 core pages', 'Lead capture & booking integrations', 'Accessibility & performance audits']
   },
   {
     name: 'Growth Refresh',
     details: 'Revitalize your existing site with updated visuals, improved UX flows, and SEO upgrades.',
+    icon: 'layout',
     inclusions: ['UX and analytics review', 'Component design system', 'Content migration & training']
   },
   {
     name: 'Care & Optimization',
     details: 'Ongoing enhancements, experiments, and security updates to keep your presence thriving.',
+    icon: 'cloud',
     inclusions: ['Monthly experiment roadmap', 'Performance monitoring', 'Security updates & backups']
   }
 ];
@@ -44,9 +59,24 @@ const packages = [
           <div class="floating-card fade-up delay-2">
             <span class="eyebrow">All-inclusive partnership</span>
             <ul>
-              <li>No setup fees and transparent monthly pricing</li>
-              <li>Continuous updates, experiments, and support</li>
-              <li>Design systems crafted for long-term scale</li>
+              <li>
+                <span class="list-icon">
+                  <AppIcon name="check" size="16" />
+                </span>
+                <span>No setup fees and transparent monthly pricing</span>
+              </li>
+              <li>
+                <span class="list-icon">
+                  <AppIcon name="spark" size="16" />
+                </span>
+                <span>Continuous updates, experiments, and support</span>
+              </li>
+              <li>
+                <span class="list-icon">
+                  <AppIcon name="layers" size="16" />
+                </span>
+                <span>Design systems crafted for long-term scale</span>
+              </li>
             </ul>
           </div>
         </div>
@@ -57,8 +87,16 @@ const packages = [
       <div class="container">
         <h2 class="fade-up">Design capabilities you can rely on</h2>
         <div class="grid grid-3">
-          <div v-for="(capability, index) in capabilities" :key="capability" class="card fade-up feature-step" :class="`delay-${index + 1}`">
-            <p>{{ capability }}</p>
+          <div
+            v-for="(capability, index) in capabilities"
+            :key="capability.text"
+            class="card fade-up feature-step"
+            :class="`delay-${index + 1}`"
+          >
+            <div class="card-icon small">
+              <AppIcon :name="capability.icon" size="22" />
+            </div>
+            <p>{{ capability.text }}</p>
           </div>
         </div>
       </div>
@@ -69,10 +107,18 @@ const packages = [
         <h2 class="fade-up">Flexible packages built around growth</h2>
         <div class="grid grid-3 process-grid">
           <article v-for="(pkg, index) in packages" :key="pkg.name" class="card fade-up" :class="`delay-${index + 1}`">
+            <div class="card-icon">
+              <AppIcon :name="pkg.icon" size="26" />
+            </div>
             <h3>{{ pkg.name }}</h3>
             <p>{{ pkg.details }}</p>
-            <ul>
-              <li v-for="inclusion in pkg.inclusions" :key="inclusion">{{ inclusion }}</li>
+            <ul class="card-list">
+              <li v-for="inclusion in pkg.inclusions" :key="inclusion">
+                <span class="list-icon">
+                  <AppIcon name="check" size="16" />
+                </span>
+                <span>{{ inclusion }}</span>
+              </li>
             </ul>
           </article>
         </div>

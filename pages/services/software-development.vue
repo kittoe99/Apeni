@@ -1,9 +1,25 @@
 <script setup lang="ts">
 const deliverables = [
-  'Technical strategy, architecture diagrams, and sprint planning',
-  'Responsive front-end interfaces powered by modern frameworks',
-  'API development, third-party integrations, and automation',
-  'Automated testing, CI/CD pipelines, and performance monitoring'
+  {
+    title: 'Strategy & Architecture',
+    description: 'Technical strategy, architecture diagrams, and sprint planning',
+    icon: 'layers'
+  },
+  {
+    title: 'Front-end Craftsmanship',
+    description: 'Responsive interfaces powered by modern frameworks and component systems',
+    icon: 'layout'
+  },
+  {
+    title: 'Integrations & Automation',
+    description: 'API development, third-party integrations, and workflow automation',
+    icon: 'cloud'
+  },
+  {
+    title: 'Quality & Reliability',
+    description: 'Automated testing, CI/CD pipelines, and performance monitoring',
+    icon: 'shield'
+  }
 ];
 
 const stacks = ['Nuxt.js & Vue', 'Node.js', 'TypeScript', 'PostgreSQL', 'AWS & Vercel', 'Docker'];
@@ -28,9 +44,24 @@ const stacks = ['Nuxt.js & Vue', 'Node.js', 'TypeScript', 'PostgreSQL', 'AWS & V
           <div class="floating-card fade-up delay-2">
             <span class="eyebrow">Highlights</span>
             <ul>
-              <li>Transparent roadmaps &amp; measurable milestones</li>
-              <li>Security reviews embedded into every sprint</li>
-              <li>Dedicated Denver-based product squad</li>
+              <li>
+                <span class="list-icon">
+                  <AppIcon name="spark" size="16" />
+                </span>
+                <span>Transparent roadmaps &amp; measurable milestones</span>
+              </li>
+              <li>
+                <span class="list-icon">
+                  <AppIcon name="shield" size="16" />
+                </span>
+                <span>Security reviews embedded into every sprint</span>
+              </li>
+              <li>
+                <span class="list-icon">
+                  <AppIcon name="location" size="16" />
+                </span>
+                <span>Dedicated Denver-based product squad</span>
+              </li>
             </ul>
           </div>
         </div>
@@ -44,9 +75,17 @@ const stacks = ['Nuxt.js & Vue', 'Node.js', 'TypeScript', 'PostgreSQL', 'AWS & V
           Launch faster with a dedicated team that treats your roadmap as our own.
         </p>
         <div class="grid grid-3">
-          <div class="card feature-step fade-up" v-for="(deliverable, index) in deliverables" :key="deliverable" :class="`delay-${index + 1}`">
-            <h3>0{{ index + 1 }}</h3>
-            <p>{{ deliverable }}</p>
+          <div
+            class="card feature-step fade-up"
+            v-for="(deliverable, index) in deliverables"
+            :key="deliverable.title"
+            :class="`delay-${index + 1}`"
+          >
+            <div class="card-icon small">
+              <AppIcon :name="deliverable.icon" size="22" />
+            </div>
+            <h3>{{ deliverable.title }}</h3>
+            <p>{{ deliverable.description }}</p>
           </div>
         </div>
       </div>

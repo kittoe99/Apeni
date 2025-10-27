@@ -30,10 +30,16 @@ const closeNav = () => {
           @click="mobileOpen = !mobileOpen"
           :aria-expanded="mobileOpen"
           aria-controls="site-navigation"
+          aria-label="Toggle navigation"
         >
-          <span>{{ mobileOpen ? 'Close ✕' : 'Menu ☰' }}</span>
+          <AppIcon :name="mobileOpen ? 'close' : 'menu'" />
+          <span>{{ mobileOpen ? 'Close' : 'Menu' }}</span>
         </button>
-        <nav id="site-navigation" :class="['nav-links', { open: mobileOpen }]">
+        <nav
+          id="site-navigation"
+          :class="['nav-links', { open: mobileOpen }]"
+          :aria-hidden="!mobileOpen"
+        >
           <NuxtLink
             v-for="link in links"
             :key="link.to"
@@ -47,6 +53,8 @@ const closeNav = () => {
         </nav>
       </div>
     </header>
+
+    <div class="nav-overlay" :class="{ visible: mobileOpen }" @click="closeNav"></div>
 
     <main class="page-shell">
       <slot />

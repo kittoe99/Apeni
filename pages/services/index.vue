@@ -4,6 +4,7 @@ const services = [
     title: 'Software Development',
     description: 'Full-cycle product development that covers ideation, architecture, testing, and launch support.',
     href: '/services/software-development',
+    icon: 'code',
     points: [
       'Product strategy, UX flows, and technical roadmaps',
       'API design, integrations, and automation',
@@ -14,6 +15,7 @@ const services = [
     title: 'Web Design',
     description: 'Conversion-optimized websites with responsive, accessible interfaces and delightful motion.',
     href: '/services/web-design',
+    icon: 'layout',
     points: [
       'Design systems, component libraries, and brand refresh',
       'CMS integration and content migrations',
@@ -24,6 +26,7 @@ const services = [
     title: 'Cybersecurity',
     description: 'Risk assessments, monitoring, and incident preparedness designed for modern digital teams.',
     href: '/services/cybersecurity',
+    icon: 'shield',
     points: [
       'Security audits, penetration testing, and hardening',
       'DevSecOps pipelines and secure SDLC',
@@ -60,10 +63,18 @@ const services = [
         <p class="section-lead fade-up delay-1">Engage with a dedicated team that adapts to your preferred workflows, tools, and timelines.</p>
         <div class="grid grid-3">
           <article v-for="(service, index) in services" :key="service.title" class="card fade-up" :class="`delay-${index + 1}`">
+            <div class="card-icon">
+              <AppIcon :name="service.icon" size="26" />
+            </div>
             <h3>{{ service.title }}</h3>
             <p>{{ service.description }}</p>
-            <ul>
-              <li v-for="point in service.points" :key="point">{{ point }}</li>
+            <ul class="card-list">
+              <li v-for="point in service.points" :key="point">
+                <span class="list-icon">
+                  <AppIcon name="check" size="16" />
+                </span>
+                <span>{{ point }}</span>
+              </li>
             </ul>
             <NuxtLink :to="service.href" class="btn btn-primary card-cta">Explore {{ service.title.toLowerCase() }}</NuxtLink>
           </article>

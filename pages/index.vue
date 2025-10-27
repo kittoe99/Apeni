@@ -3,25 +3,40 @@ const highlights = [
   {
     title: 'Software Development',
     description: 'Custom applications engineered to scale with your business, built with clean code, modern tooling, and human-centered UX.',
-    href: '/services/software-development'
+    href: '/services/software-development',
+    icon: 'code'
   },
   {
     title: 'Web Design',
     description: 'Ocean-inspired digital experiences that balance beauty and performance, optimized for conversions and accessibility.',
-    href: '/services/web-design'
+    href: '/services/web-design',
+    icon: 'layout'
   },
   {
     title: 'Cybersecurity',
     description: 'Layered security programs and proactive monitoring to keep your data, customers, and reputation safe online.',
-    href: '/services/cybersecurity'
+    href: '/services/cybersecurity',
+    icon: 'shield'
   }
 ];
 
 const benefits = [
-  'Strategy-first approach with clear milestones and transparent communication.',
-  'Flexible retainers and launch packages tailored to your growth goals.',
-  'Security baked into every sprint, not bolted on at the end.',
-  'Dedicated Denver-based partner delivering results to clients worldwide.'
+  {
+    text: 'Strategy-first approach with clear milestones and transparent communication.',
+    icon: 'check'
+  },
+  {
+    text: 'Flexible retainers and launch packages tailored to your growth goals.',
+    icon: 'check'
+  },
+  {
+    text: 'Security baked into every sprint, not bolted on at the end.',
+    icon: 'shield'
+  },
+  {
+    text: 'Dedicated Denver-based partner delivering results to clients worldwide.',
+    icon: 'location'
+  }
 ];
 
 const stats = [
@@ -77,6 +92,9 @@ const brandNames = ['Harbor & Co.', 'Blue Mesa Ventures', 'Seawind Labs', 'North
         </p>
         <div class="grid grid-3">
           <div v-for="(highlight, index) in highlights" :key="highlight.title" class="card fade-up" :class="`delay-${index + 1}`">
+            <div class="card-icon">
+              <AppIcon :name="highlight.icon" size="26" />
+            </div>
             <h3>{{ highlight.title }}</h3>
             <p>{{ highlight.description }}</p>
             <NuxtLink :to="highlight.href" class="btn btn-primary card-cta">Learn more</NuxtLink>
@@ -129,9 +147,11 @@ const brandNames = ['Harbor & Co.', 'Blue Mesa Ventures', 'Seawind Labs', 'North
           <p><strong>— Jamie Carter, COO, Mountain Coast Ventures</strong></p>
         </div>
         <ul class="benefit-list fade-up delay-3" aria-label="Engagement benefits">
-          <li v-for="benefit in benefits" :key="benefit">
-            <span>✦</span>
-            <span>{{ benefit }}</span>
+          <li v-for="benefit in benefits" :key="benefit.text">
+            <span class="benefit-icon">
+              <AppIcon :name="benefit.icon" size="18" />
+            </span>
+            <span>{{ benefit.text }}</span>
           </li>
         </ul>
       </div>
