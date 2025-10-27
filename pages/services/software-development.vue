@@ -1,117 +1,106 @@
 <script setup lang="ts">
 const deliverables = [
   {
-    title: 'Strategy & Architecture',
-    description: 'Technical strategy, architecture diagrams, and sprint planning',
+    title: 'Strategy & architecture',
+    description: 'Product vision mapping, technical roadmaps, and sprint planning to align every stakeholder.',
     icon: 'layers'
   },
   {
-    title: 'Front-end Craftsmanship',
-    description: 'Responsive interfaces powered by modern frameworks and component systems',
+    title: 'Experience engineering',
+    description: 'Responsive interfaces powered by modern frameworks and component systems.',
     icon: 'layout'
   },
   {
-    title: 'Integrations & Automation',
-    description: 'API development, third-party integrations, and workflow automation',
+    title: 'Integrations & automation',
+    description: 'API development, third-party integrations, and workflow automation that scales.',
     icon: 'cloud'
   },
   {
-    title: 'Quality & Reliability',
-    description: 'Automated testing, CI/CD pipelines, and performance monitoring',
+    title: 'Reliability & security',
+    description: 'Automated testing, CI/CD, monitoring, and DevSecOps baked into every release.',
     icon: 'shield'
   }
 ];
 
 const stacks = ['Nuxt.js & Vue', 'Node.js', 'TypeScript', 'PostgreSQL', 'AWS & Vercel', 'Docker'];
+
+const commitments = [
+  'Transparent roadmaps & measurable milestones',
+  'Security reviews embedded into every sprint',
+  'Dedicated Denver-based product squad'
+];
 </script>
 
 <template>
   <div>
-    <section class="hero service-hero">
-      <div class="hero-content">
-        <div class="hero-text">
+    <section class="page-hero">
+      <div class="container page-grid">
+        <div>
           <div class="badge fade-up">Software Development</div>
           <h1 class="fade-up">Build future-ready products with confidence.</h1>
           <p class="fade-up delay-1">
             We translate complex requirements into lovable software—balancing elegant UX with scalable, secure engineering practices.
           </p>
-          <div class="hero-actions fade-up delay-2">
+          <div class="hero-cta fade-up delay-2">
             <NuxtLink to="/contact" class="btn btn-primary">Schedule a consult</NuxtLink>
-            <NuxtLink to="/services" class="btn btn-outline">Back to services</NuxtLink>
+            <NuxtLink to="/services" class="btn btn-secondary">Back to services</NuxtLink>
           </div>
         </div>
-        <div class="hero-media">
-          <div class="floating-card fade-up delay-2">
-            <span class="eyebrow">Highlights</span>
-            <ul>
-              <li>
-                <span class="list-icon">
-                  <AppIcon name="spark" size="16" />
-                </span>
-                <span>Transparent roadmaps &amp; measurable milestones</span>
-              </li>
-              <li>
-                <span class="list-icon">
-                  <AppIcon name="shield" size="16" />
-                </span>
-                <span>Security reviews embedded into every sprint</span>
-              </li>
-              <li>
-                <span class="list-icon">
-                  <AppIcon name="location" size="16" />
-                </span>
-                <span>Dedicated Denver-based product squad</span>
-              </li>
-            </ul>
-          </div>
+        <div class="highlight-panel fade-up delay-2">
+          <strong>Highlights</strong>
+          <ul style="margin: 0; padding: 0; display: grid; gap: 0.7rem;">
+            <li v-for="item in commitments" :key="item" style="list-style: none; display: flex; gap: 0.7rem; align-items: center;">
+              <span class="icon" style="width: 28px; height: 28px; border-radius: 50%; background: rgba(0, 128, 96, 0.12); display: inline-flex; align-items: center; justify-content: center; color: var(--color-primary);">
+                <AppIcon name="check" size="16" />
+              </span>
+              <span>{{ item }}</span>
+            </li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <section class="section light">
+    <section class="section is-alt">
       <div class="container">
-        <h2 class="fade-up">What we deliver</h2>
-        <p class="section-lead fade-up delay-1">
-          Launch faster with a dedicated team that treats your roadmap as our own.
-        </p>
-        <div class="grid grid-3">
-          <div
-            class="card feature-step fade-up"
-            v-for="(deliverable, index) in deliverables"
-            :key="deliverable.title"
-            :class="`delay-${index + 1}`"
-          >
-            <div class="card-icon small">
-              <AppIcon :name="deliverable.icon" size="22" />
+        <div class="section-header">
+          <span class="fade-up">What we deliver</span>
+          <h2 class="fade-up">Engineering partnerships that scale with you.</h2>
+          <p class="fade-up delay-1">Launch faster with a dedicated squad treating your roadmap as our own.</p>
+        </div>
+        <div class="feature-grid">
+          <article v-for="deliverable in deliverables" :key="deliverable.title" class="feature-card fade-up">
+            <div class="feature-icon">
+              <AppIcon :name="deliverable.icon" size="24" />
             </div>
             <h3>{{ deliverable.title }}</h3>
             <p>{{ deliverable.description }}</p>
-          </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section ocean">
+    <section class="section is-contrast">
       <div class="container">
-        <h2 class="fade-up">Favorite tools &amp; technologies</h2>
-        <p class="section-lead fade-up delay-1">
-          Choosing the right stack is critical. We rely on proven, future-friendly technologies that we would happily maintain for years.
-        </p>
-        <div class="grid stack-grid">
-          <div v-for="stack in stacks" :key="stack" class="card stack-card fade-up">
+        <div class="section-header">
+          <span class="fade-up">Our toolkit</span>
+          <h2 class="fade-up">Future-friendly stacks we love.</h2>
+          <p class="fade-up delay-1">We rely on modern technologies we trust to maintain for years—stable, secure, and ready to scale.</p>
+        </div>
+        <div class="feature-grid">
+          <article v-for="stack in stacks" :key="stack" class="feature-card fade-up">
             <h3>{{ stack }}</h3>
-          </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section light">
-      <div class="container" style="text-align: center;">
-        <h2 class="fade-up">Ready to co-create?</h2>
-        <p class="section-lead fade-up delay-1">
-          Tell us about your product vision, and we’ll share an action plan with clear next steps.
-        </p>
-        <NuxtLink to="/contact" class="btn btn-primary fade-up delay-2">Start the conversation</NuxtLink>
+    <section class="section">
+      <div class="container" style="max-width: 900px;">
+        <div class="cta-banner fade-up">
+          <h2>Ready to co-create?</h2>
+          <p>Tell us about your product vision, and we’ll share an action plan with clear next steps.</p>
+          <NuxtLink to="/contact" class="btn btn-primary">Start the conversation</NuxtLink>
+        </div>
       </div>
     </section>
   </div>

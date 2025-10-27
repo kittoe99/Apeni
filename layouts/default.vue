@@ -19,10 +19,11 @@ const closeNav = () => {
 
 <template>
   <div>
-    <header>
-      <div class="navbar">
-        <NuxtLink to="/" class="logo" @click="closeNav">
-          <span>A</span>
+    <header class="site-header">
+      <div class="top-bar">Now booking new software, web, and security engagements for Q3.</div>
+      <div class="container nav-container">
+        <NuxtLink to="/" class="brand" @click="closeNav">
+          <span class="brand-badge">A</span>
           <span>Apeni.co</span>
         </NuxtLink>
         <button
@@ -38,14 +39,14 @@ const closeNav = () => {
         <nav
           id="site-navigation"
           :class="['nav-links', { open: mobileOpen }]"
-          :aria-hidden="!mobileOpen"
+          :aria-hidden="mobileOpen ? 'false' : 'true'"
         >
           <NuxtLink
             v-for="link in links"
             :key="link.to"
             :to="link.to"
             class="nav-link"
-            :class="{ accent: link.accent }"
+            :class="{ cta: link.accent }"
             @click="closeNav"
           >
             {{ link.label }}
@@ -62,30 +63,37 @@ const closeNav = () => {
 
     <footer class="footer">
       <div class="container footer-grid">
-        <div class="footer-brand">
-          <NuxtLink to="/" class="logo">
-            <span>A</span>
+        <div>
+          <NuxtLink to="/" class="brand">
+            <span class="brand-badge">A</span>
             <span>Apeni.co</span>
           </NuxtLink>
-          <p class="tagline">Transforming ideas into secure, high-performing digital experiences.</p>
+          <p style="margin-top: 1rem; max-width: 260px;">
+            Transforming your online presence with conversion-ready design, reliable development, and round-the-clock security.
+          </p>
         </div>
-        <div class="footer-contact">
-          <h4>Connect</h4>
-          <a href="mailto:kofikittoe35@gmail.com">kofikittoe35@gmail.com</a>
-          <a href="tel:17208429167">720-842-9167</a>
-        </div>
-        <div class="footer-links">
-          <h4>Explore</h4>
-          <NuxtLink to="/services">Services</NuxtLink>
+        <div>
+          <h4>Services</h4>
           <NuxtLink to="/services/web-design">Web Design</NuxtLink>
           <NuxtLink to="/services/software-development">Software Development</NuxtLink>
           <NuxtLink to="/services/cybersecurity">Cybersecurity</NuxtLink>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <NuxtLink to="/">Home</NuxtLink>
+          <NuxtLink to="/services">Services Overview</NuxtLink>
           <NuxtLink to="/contact">Contact</NuxtLink>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <a href="mailto:kofikittoe35@gmail.com">kofikittoe35@gmail.com</a>
+          <a href="tel:17208429167">720-842-9167</a>
+          <span>Denver, Colorado · Remote within 67 km</span>
         </div>
       </div>
       <div class="container footer-bottom">
         <small>&copy; {{ new Date().getFullYear() }} Apeni.co. All rights reserved.</small>
-        <span>Denver, Colorado · Remote within 67 km</span>
+        <span>Preferred contact: Email</span>
       </div>
     </footer>
   </div>

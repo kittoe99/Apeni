@@ -1,103 +1,127 @@
 <script setup lang="ts">
 const services = [
   {
-    title: 'Software Development',
-    description: 'Full-cycle product development that covers ideation, architecture, testing, and launch support.',
-    href: '/services/software-development',
-    icon: 'code',
-    points: [
-      'Product strategy, UX flows, and technical roadmaps',
-      'API design, integrations, and automation',
-      'Quality assurance, testing, and documentation'
-    ]
-  },
-  {
     title: 'Web Design',
-    description: 'Conversion-optimized websites with responsive, accessible interfaces and delightful motion.',
+    description:
+      'Craft a polished, responsive website that connects your brand story to measurable results across every touchpoint.',
     href: '/services/web-design',
     icon: 'layout',
-    points: [
-      'Design systems, component libraries, and brand refresh',
-      'CMS integration and content migrations',
-      'Performance tuning and analytics dashboards'
-    ]
+    bullets: ['Conversion-focused UX and copy', 'Design systems & CMS integrations', 'Launch plans and optimization']
+  },
+  {
+    title: 'Software Development',
+    description:
+      'Ship modern applications with a collaborative team handling architecture, sprints, QA, and deployment.',
+    href: '/services/software-development',
+    icon: 'code',
+    bullets: ['Product strategy & roadmapping', 'API design and automation workflows', 'Testing, documentation, and support']
   },
   {
     title: 'Cybersecurity',
-    description: 'Risk assessments, monitoring, and incident preparedness designed for modern digital teams.',
+    description: 'Protect your product, data, and users with proactive assessments, monitoring, and incident response.',
     href: '/services/cybersecurity',
     icon: 'shield',
-    points: [
-      'Security audits, penetration testing, and hardening',
-      'DevSecOps pipelines and secure SDLC',
-      'Training, playbooks, and compliance alignment'
-    ]
+    bullets: ['Security audits & hardening', 'DevSecOps pipeline integration', 'Training and compliance guidance']
+  }
+];
+
+const collaboration = [
+  {
+    title: 'Shared strategy',
+    copy: 'Align on goals, metrics, and milestones so every sprint produces tangible business outcomes.'
+  },
+  {
+    title: 'Iterative delivery',
+    copy: 'Weekly touchpoints, demos, and feedback loops keep work transparent and collaborative.'
+  },
+  {
+    title: 'Long-term partnership',
+    copy: 'Post-launch optimization, security monitoring, and support retainers keep momentum moving.'
   }
 ];
 </script>
 
 <template>
   <div>
-    <section class="hero service-hero">
-      <div class="hero-content">
-        <div class="hero-text">
+    <section class="page-hero">
+      <div class="container page-grid">
+        <div>
           <div class="badge fade-up">Services</div>
-          <h1 class="fade-up">Strategic services for product-led teams.</h1>
+          <h1 class="fade-up">A single partner for design, engineering, and security.</h1>
           <p class="fade-up delay-1">
-            From brand new startups to established enterprises, Apeni.co delivers unified design, development, and security expertise to help you scale without compromise.
+            From launch-ready websites to mission-critical platforms, Apeni.co delivers cross-functional expertise so you can
+            move faster without sacrificing quality.
           </p>
         </div>
-        <div class="hero-media">
-          <div class="floating-card fade-up delay-1">
-            <span class="eyebrow">Remote-first partner</span>
-            <strong>Denver &amp; beyond</strong>
-            <small>Serving clients within 67 km locally and collaborating with teams worldwide.</small>
-          </div>
+        <div class="highlight-panel fade-up delay-2">
+          <strong>What you can expect</strong>
+          <small>Every engagement includes:</small>
+          <ul style="margin: 0; padding: 0; display: grid; gap: 0.7rem;">
+            <li v-for="item in ['Strategy workshops & roadmaps', 'Weekly progress touchpoints', 'Security baked into every sprint']" :key="item" style="list-style: none; display: flex; align-items: center; gap: 0.7rem;">
+              <span class="icon" style="width: 28px; height: 28px; border-radius: 50%; background: rgba(0, 128, 96, 0.12); display: inline-flex; align-items: center; justify-content: center; color: var(--color-primary);">
+                <AppIcon name="check" size="16" />
+              </span>
+              <span>{{ item }}</span>
+            </li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <section class="section light">
+    <section class="section is-alt">
       <div class="container">
-        <h2 class="fade-up">Choose the focus area that fits your goals.</h2>
-        <p class="section-lead fade-up delay-1">Engage with a dedicated team that adapts to your preferred workflows, tools, and timelines.</p>
-        <div class="grid grid-3">
-          <article v-for="(service, index) in services" :key="service.title" class="card fade-up" :class="`delay-${index + 1}`">
-            <div class="card-icon">
-              <AppIcon :name="service.icon" size="26" />
+        <div class="section-header">
+          <span class="fade-up">What we do</span>
+          <h2 class="fade-up">Choose the focus area that accelerates your roadmap.</h2>
+          <p class="fade-up delay-1">
+            Work with a dedicated, multidisciplinary team that adapts to your tools, cadence, and internal workflows.
+          </p>
+        </div>
+        <div class="service-grid">
+          <article v-for="service in services" :key="service.title" class="service-card fade-up">
+            <div class="feature-icon">
+              <AppIcon :name="service.icon" size="24" />
             </div>
             <h3>{{ service.title }}</h3>
             <p>{{ service.description }}</p>
-            <ul class="card-list">
-              <li v-for="point in service.points" :key="point">
-                <span class="list-icon">
-                  <AppIcon name="check" size="16" />
-                </span>
-                <span>{{ point }}</span>
+            <ul>
+              <li v-for="bullet in service.bullets" :key="bullet">
+                <span class="icon"><AppIcon name="check" size="16" /></span>
+                <span>{{ bullet }}</span>
               </li>
             </ul>
-            <NuxtLink :to="service.href" class="btn btn-primary card-cta">Explore {{ service.title.toLowerCase() }}</NuxtLink>
+            <NuxtLink :to="service.href" class="btn btn-secondary" style="justify-self: flex-start;">Explore {{
+              service.title
+            }}</NuxtLink>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section ocean">
+    <section class="section is-contrast">
       <div class="container">
-        <h2 class="fade-up">How we collaborate</h2>
-        <div class="grid grid-3 process-grid">
-          <div class="card fade-up">
-            <h3>Discovery Workshops</h3>
-            <p>Align stakeholders and translate goals into a shared blueprint covering user journeys, technical architecture, and security posture.</p>
-          </div>
-          <div class="card fade-up delay-1">
-            <h3>Agile Sprints</h3>
-            <p>Transparent sprint cycles with demos, retrospectives, and backlog grooming to keep progress visible and collaborative.</p>
-          </div>
-          <div class="card fade-up delay-2">
-            <h3>Growth Partnership</h3>
-            <p>Post-launch optimization, monitoring, and proactive updates keep your product, content, and security in harmony.</p>
-          </div>
+        <div class="section-header" style="text-align: center; margin: 0 auto 3rem;">
+          <span class="fade-up">How we collaborate</span>
+          <h2 class="fade-up">Transparent delivery that feels in-house.</h2>
+          <p class="fade-up delay-1" style="margin: 0 auto; max-width: 640px;">
+            We integrate with your team through shared channels, planning tools, and a proactive communications rhythm.
+          </p>
+        </div>
+        <div class="feature-grid">
+          <article v-for="step in collaboration" :key="step.title" class="feature-card fade-up">
+            <h3>{{ step.title }}</h3>
+            <p>{{ step.copy }}</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container" style="max-width: 900px;">
+        <div class="cta-banner fade-up">
+          <h2>Let’s map the engagement that fits your team.</h2>
+          <p>Tell us about your goals, timeline, and must-haves—we’ll share a tailored plan within one business day.</p>
+          <NuxtLink to="/contact" class="btn btn-primary">Start the conversation</NuxtLink>
         </div>
       </div>
     </section>
